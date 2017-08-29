@@ -3,6 +3,7 @@ package br.com.jordilucas.carros.extensions
 import android.app.Activity
 import android.support.annotation.IdRes
 import android.support.annotation.StringRes
+import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
@@ -38,6 +39,13 @@ class Activity_Extensions {
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(upNavigation)
         return supportActionBar!!
+    }
+
+    fun AppCompatActivity.addFragment(@IdRes layoutId: Int, fragment: Fragment){
+        fragment.arguments = intent.extras
+        val ft = supportFragmentManager.beginTransaction()
+        ft.add(layoutId, fragment)
+        ft.commit()
     }
 
 }
