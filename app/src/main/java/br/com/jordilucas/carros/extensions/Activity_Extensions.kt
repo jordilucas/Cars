@@ -13,7 +13,6 @@ import android.widget.Toast
 /**
  * Created by jordi on 29/08/17.
  */
-class Activity_Extensions {
 
     //FindViewById + setOnClickListener
     fun AppCompatActivity.onClick(@IdRes viewId: Int, onClick:(V: android.view.View?) -> Unit){
@@ -48,4 +47,3 @@ class Activity_Extensions {
         ft.commit()
     }
 
-}
