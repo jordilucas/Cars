@@ -1,19 +1,44 @@
 package br.com.jordilucas.carros.activity
 
+import android.graphics.Bitmap
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebView
-import android.widget.ProgressBar
+import android.webkit.WebViewClient
+
 import br.com.jordilucas.carros.R
+import br.com.jordilucas.carros.extensions.setupToolbar
+import kotlinx.android.synthetic.main.activity_site_livro.*
+
 
 class SiteLivroActivity : AppCompatActivity() {
 
-    private val URL_SOBRE = "http://ww.livroandroid.com.br/sobre.htm"
-    var webview: WebView? = null
-    var progress: ProgressBar? = null
+    private val URL_SOBRE = "http://www.livroandroid.com.br/sobre.htm"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_site_livro)
+        val actionBar = setupToolbar(R.id.toolbar)
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
+        setWebViewClient(webview)
+        webview.loadUrl(URL_SOBRE)
+
+    }
+
+    private fun setWebViewClient(webView: WebView?){
+        webView?.webViewClient = object : WebViewClient(){
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
+                progress.visibility = View.VISIBLE
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                progress.visibility = View.INVISIBLE
+            }
+
+        }
     }
 }
