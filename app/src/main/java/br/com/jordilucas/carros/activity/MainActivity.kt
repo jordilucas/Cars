@@ -1,5 +1,6 @@
 package br.com.jordilucas.carros.activity
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -9,6 +10,7 @@ import android.view.MenuItem
 import br.com.jordilucas.carros.R
 import br.com.jordilucas.carros.extensions.setupToolbar
 import br.com.jordilucas.carros.extensions.toast
+import br.com.jordilucas.carros.utils.TipoCarro
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 
@@ -39,13 +41,19 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 toast("Clicou em carros")
             }
             R.id.nav_item_carros_classicos -> {
-                toast("Clicou em classicos")
+                val intent = Intent(context, CarrosActivity::class.java)
+                intent.putExtra("tipo", TipoCarro.classicos)
+                startActivity(intent)
             }
             R.id.nav_item_carros_esportivos -> {
-                toast("Clicou em esportivos")
+                val intent = Intent(context, CarrosActivity::class.java)
+                intent.putExtra("tipo", TipoCarro.esportivos)
+                startActivity(intent)
             }
             R.id.nav_item_carros_luxo -> {
-                toast("Clicou em luxo")
+                val intent = Intent(context, CarrosActivity::class.java)
+                intent.putExtra("tipo", TipoCarro.luxo)
+                startActivity(intent)
             }
             R.id.nav_item_site_livro -> {
                 toast("Clicou em livro")
