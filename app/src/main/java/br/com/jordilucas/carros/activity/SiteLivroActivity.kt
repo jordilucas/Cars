@@ -4,10 +4,12 @@ import android.graphics.Bitmap
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 
 import br.com.jordilucas.carros.R
+import br.com.jordilucas.carros.dialogs.AboutDialog
 import br.com.jordilucas.carros.extensions.setupToolbar
 import kotlinx.android.synthetic.main.activity_site_livro.*
 
@@ -46,6 +48,17 @@ class SiteLivroActivity : AppCompatActivity() {
                 super.onPageFinished(view, url)
                 progress.visibility = View.INVISIBLE
                 swipeRefresh.isRefreshing = false
+            }
+
+            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+
+                val url = request?.url.toString()
+                if(url.endsWith("sobre.htm")){
+                    AboutDialog.showAbout(supportFragmentManager)
+                    return true
+                }
+
+                return super.shouldOverrideUrlLoading(view, request)
             }
 
         }
