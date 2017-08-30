@@ -13,7 +13,7 @@ import br.com.jordilucas.carros.extensions.toast
 import br.com.jordilucas.carros.utils.TipoCarro
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
-
+import org.jetbrains.anko.startActivity
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -41,19 +41,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 toast("Clicou em carros")
             }
             R.id.nav_item_carros_classicos -> {
-                val intent = Intent(context, CarrosActivity::class.java)
-                intent.putExtra("tipo", TipoCarro.classicos)
-                startActivity(intent)
+                startActivity<CarrosActivity>("tipo" to TipoCarro.classicos)
             }
             R.id.nav_item_carros_esportivos -> {
-                val intent = Intent(context, CarrosActivity::class.java)
-                intent.putExtra("tipo", TipoCarro.esportivos)
-                startActivity(intent)
+                startActivity<CarrosActivity>("tipo" to TipoCarro.esportivos)
             }
             R.id.nav_item_carros_luxo -> {
-                val intent = Intent(context, CarrosActivity::class.java)
-                intent.putExtra("tipo", TipoCarro.luxo)
-                startActivity(intent)
+                startActivity<CarrosActivity>("tipo" to TipoCarro.luxo)
             }
             R.id.nav_item_site_livro -> {
                 toast("Clicou em livro")
