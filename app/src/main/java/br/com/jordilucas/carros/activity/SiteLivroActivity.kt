@@ -25,6 +25,14 @@ class SiteLivroActivity : AppCompatActivity() {
         setWebViewClient(webview)
         webview.loadUrl(URL_SOBRE)
 
+        swipeRefresh.setOnRefreshListener { webview.reload() }
+
+        swipeRefresh.setColorSchemeResources(
+                R.color.refresh_progress_1,
+                R.color.refresh_progress_2,
+                R.color.refresh_progress_3
+        )
+
     }
 
     private fun setWebViewClient(webView: WebView?){
@@ -37,6 +45,7 @@ class SiteLivroActivity : AppCompatActivity() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 progress.visibility = View.INVISIBLE
+                swipeRefresh.isRefreshing = false
             }
 
         }
