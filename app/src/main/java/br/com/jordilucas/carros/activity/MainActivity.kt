@@ -50,7 +50,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 startActivity<CarrosActivity>("tipo" to TipoCarro.luxo)
             }
             R.id.nav_item_site_livro -> {
-                toast("Clicou em livro")
+                startActivity<SiteLivroActivity>()
             }
             R.id.nav_item_settings -> {
                 toast("Clicou em settings")
