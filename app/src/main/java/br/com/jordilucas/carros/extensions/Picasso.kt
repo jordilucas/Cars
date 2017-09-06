@@ -15,7 +15,7 @@ fun ImageView.loadUrl(url: String?, progress:ProgressBar? = null){
         return
     }
     if(progress == null){
-        Picasso.with(context).load(url).fit.into(this)
+        Picasso.with(context).load(url).fit().into(this)
     }
     else{
         progress.visibility = View.VISIBLE
