@@ -33,12 +33,14 @@ class CarroAdapter(val carros:List<Carro>, val onClick:(Carro) -> Unit) :
         val view = holder.itemView
         val carro = carros[position]
 
-        view.tNome.text = carro.nome
-        view.progress.visibility = View.VISIBLE
+        with(view){
+            tNome.text = carro.nome
+            progress.visibility = View.VISIBLE
+            img.loadUrl(carro.urlFoto, view.progress)
+            setOnClickListener{ onClick(carro)}
+        }
 
-        view.img.loadUrl(carro.urlFoto, view.progress)
 
-        view.setOnClickListener{ onClick(carro)}
 
     }
 
