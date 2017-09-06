@@ -53,9 +53,12 @@ class CarrosFragment : BaseFragment() {
     fun taskCarros(){
         this.carros = CarroService.getCarros(context, tipoCarro)
         recyclerView?.adapter = CarroAdapter(carros){
-            val carro = it
-            toast("clicou no carro $carro.nome")
+            onClickCarro(it)
         }
+    }
+
+    fun onClickCarro(carro: Carro){
+        toast("Clicou no carro ${carro.nome}")
     }
 
 }
