@@ -10,22 +10,18 @@ import kotlinx.android.synthetic.main.activity_carro_contents.*
 
 class CarroActivity : BaseActivity() {
 
-    var carro: Carro? = null
+    val carro:Carro by lazy {intent.getParcelableExtra<Carro>("carro")}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_carro)
-
-        carro = intent.getSerializableExtra("carro") as Carro
-        setupToolbar(R.id.toolbar, carro?.nome, true)
+        setupToolbar(R.id.toolbar, carro.nome, true)
 
         initViews()
-
     }
 
     fun initViews(){
-        tDesc.text = carro?.desc
-        img.loadUrl(carro?.urlFoto)
+        tDesc.text = carro.desc
+        img.loadUrl(carro.urlFoto)
     }
-
 }
