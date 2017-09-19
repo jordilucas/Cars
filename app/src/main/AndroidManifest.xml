@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.jordilucas.carros">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".CarrosAplication"
@@ -28,8 +28,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.MainActivity" />
         </activity>
-        <activity android:name=".activity.SiteLivroActivity"
-            android:parentActivityName=".activity.MainActivity"/>
+        <activity
+            android:name=".activity.SiteLivroActivity"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity android:name=".activity.CarroActivity"></activity>
     </application>
 
 </manifest>
