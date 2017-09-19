@@ -1,9 +1,11 @@
 package br.com.jordilucas.carros.domain
 
+import java.io.Serializable
+
 /**
  * Created by jordi on 31/08/17.
  */
-class Carro {
+class Carro : Serializable {
 
     var id:Long = 0
     var tipo = ""
