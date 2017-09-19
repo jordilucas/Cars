@@ -4,10 +4,12 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import br.com.jordilucas.carros.R
+import br.com.jordilucas.carros.adapter.TabsAdapter
 import br.com.jordilucas.carros.extensions.setupToolbar
 import br.com.jordilucas.carros.extensions.toast
 import br.com.jordilucas.carros.utils.TipoCarro
@@ -22,6 +24,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setContentView(R.layout.activity_main)
         setupToolbar(R.id.toolbar)
         setupNavDrawer()
+        setupViewPagerTabs()
     }
 
     private fun setupNavDrawer(){
@@ -33,6 +36,14 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         drawer_layout.addDrawerListener(toogle)
         toogle.syncState()
         nav_view.setNavigationItemSelectedListener(this)
+    }
+
+    private fun setupViewPagerTabs(){
+        viewPager.offscreenPageLimit = 2
+        viewPager.adapter = TabsAdapter(context, supportFragmentManager)
+        tabLayout.setupWithViewPager(viewPager)
+        val cor = ContextCompat.getColor(context, R.color.white)
+        tabLayout.setTabTextColors(cor, cor)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
