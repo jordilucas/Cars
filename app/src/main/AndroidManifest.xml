@@ -31,7 +31,8 @@
         <activity
             android:name=".activity.SiteLivroActivity"
             android:parentActivityName=".activity.MainActivity" />
-        <activity android:name=".activity.CarroActivity"></activity>
+        <activity android:name=".activity.CarroActivity"
+            android:parentActivityName=".activity.MainActivity"/>
     </application>
 
 </manifest>
