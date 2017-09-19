@@ -7,16 +7,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-
-
+import org.jetbrains.anko.startActivity
 import br.com.jordilucas.carros.R
+import br.com.jordilucas.carros.activity.CarroActivity
 import br.com.jordilucas.carros.adapter.CarroAdapter
 import br.com.jordilucas.carros.domain.Carro
 import br.com.jordilucas.carros.domain.CarroService
-import br.com.jordilucas.carros.extensions.toast
 import br.com.jordilucas.carros.utils.TipoCarro
-import kotlinx.android.synthetic.main.fragment_carros.*
 
 class CarrosFragment : BaseFragment() {
 
@@ -58,7 +55,7 @@ class CarrosFragment : BaseFragment() {
     }
 
     fun onClickCarro(carro: Carro){
-        toast("Clicou no carro ${carro.nome}")
+        activity.startActivity<CarroActivity>("carro" to carro)
     }
 
 }
