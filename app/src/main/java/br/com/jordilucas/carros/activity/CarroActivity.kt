@@ -9,6 +9,7 @@ import br.com.jordilucas.carros.extensions.setupToolbar
 import kotlinx.android.synthetic.main.activity_carro.*
 import kotlinx.android.synthetic.main.activity_carro_contents.*
 
+
 class CarroActivity : BaseActivity() {
 
     val carro:Carro by lazy {intent.getParcelableExtra<Carro>("carro")}
