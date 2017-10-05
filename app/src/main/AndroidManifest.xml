@@ -3,7 +3,8 @@
     package="br.com.jordilucas.carros">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".CarrosAplication"
         android:allowBackup="true"
@@ -31,8 +32,10 @@
         <activity
             android:name=".activity.SiteLivroActivity"
             android:parentActivityName=".activity.MainActivity" />
-        <activity android:name=".activity.CarroActivity"
-            android:parentActivityName=".activity.MainActivity"/>
+        <activity
+            android:name=".activity.CarroActivity"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity android:name=".activity.CarroFormActivity"></activity>
     </application>
 
 </manifest>
