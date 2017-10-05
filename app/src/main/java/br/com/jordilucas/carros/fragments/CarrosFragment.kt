@@ -14,6 +14,8 @@ import br.com.jordilucas.carros.adapter.CarroAdapter
 import br.com.jordilucas.carros.domain.Carro
 import br.com.jordilucas.carros.domain.CarroService
 import br.com.jordilucas.carros.utils.TipoCarro
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 class CarrosFragment : BaseFragment() {
 
@@ -48,9 +50,14 @@ class CarrosFragment : BaseFragment() {
     }
 
     fun taskCarros(){
-        this.carros = CarroService.getCarros(context, tipoCarro)
-        recyclerView?.adapter = CarroAdapter(carros){
-            onClickCarro(it)
+
+        doAsync {
+            carros = CarroService.getCarros(tipoCarro)
+            uiThread {
+                recyclerView?.adapter = CarroAdapter(carros){
+                    onClickCarro(it)
+                }
+            }
         }
     }
 
