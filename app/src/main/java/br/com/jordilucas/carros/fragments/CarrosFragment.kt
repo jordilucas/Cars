@@ -38,7 +38,7 @@ class CarrosFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView = view?.findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView?.layoutManager = LinearLayoutManager(activity)
+        recyclerView?.layoutManager = LinearLayoutManager(activity)!!
         recyclerView?.itemAnimator = DefaultItemAnimator()
         recyclerView?.setHasFixedSize(true)
 
@@ -52,7 +52,7 @@ class CarrosFragment : BaseFragment() {
     fun taskCarros(){
 
         doAsync {
-            carros = CarroService.getCarros(tipoCarro)
+            carros = CarroService.getCarros(tipoCarro)!!
             uiThread {
                 recyclerView?.adapter = CarroAdapter(carros){
                     onClickCarro(it)
