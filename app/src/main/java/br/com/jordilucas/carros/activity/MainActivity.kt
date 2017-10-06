@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
+import android.view.Menu
 import android.view.MenuItem
 import br.com.jordilucas.carros.R
 import br.com.jordilucas.carros.adapter.TabsAdapter
@@ -28,8 +29,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setupViewPagerTabs()
 
         fab.setOnClickListener(){
-            val snack = Snackbar.make(it, "Clicou no botao fab!", Snackbar.LENGTH_LONG)
-            snack.show()
+            startActivity<CarroFormActivity>()
         }
 
     }
@@ -51,6 +51,24 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         tabLayout.setupWithViewPager(viewPager)
         val cor = ContextCompat.getColor(context, R.color.white)
         tabLayout.setTabTextColors(cor, cor)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_carro, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId){
+            R.id.action_editar ->{
+                startActivity<CarroFormActivity>()
+                finish()
+            }
+            R.id.action_deletar -> {
+                TODO("deletar o carro")
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
