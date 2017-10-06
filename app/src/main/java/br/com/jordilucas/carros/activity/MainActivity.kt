@@ -53,12 +53,12 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         tabLayout.setTabTextColors(cor, cor)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_carro, menu)
         return true
-    }
+    }*/
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    /*override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item?.itemId){
             R.id.action_editar ->{
                 startActivity<CarroFormActivity>()
@@ -69,7 +69,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
         }
         return super.onOptionsItemSelected(item)
-    }
+    }*/
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId){

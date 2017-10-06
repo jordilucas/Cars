@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_carro_form_content.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
-class CarroFormActivity : AppCompatActivity() {
+class CarroFormActivity : BaseActivity() {
 
     val carro: Carro? by lazy { intent.getParcelableExtra<Carro>("carro") }
 
@@ -61,7 +61,6 @@ class CarroFormActivity : AppCompatActivity() {
         }
 
         doAsync {
-
             val c = carro?:Carro()
             c.nome = tNome.string
             c.desc = tDesc.string
@@ -77,7 +76,5 @@ class CarroFormActivity : AppCompatActivity() {
                 finish()
             }
         }
-
     }
-
 }
