@@ -21,7 +21,7 @@ class CarroFormActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_carro_form)
-        setupToolbar(R.id.toolbar, carro?.nome?: getString(R.string.novo_carro))
+        setupToolbar(R.id.toolbar, carro?.nome?: getString(R.string.novo_carro), true)
         initViews()
     }
 
