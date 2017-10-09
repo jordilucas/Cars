@@ -39,4 +39,8 @@ object Prefs {
         return s
     }
 
+    var tabIdx: Int
+
+    get() = getInt("tabIdx")
+    set(value) = setInt("tabIdx", value)
 }
