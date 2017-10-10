@@ -3,6 +3,7 @@ package br.com.jordilucas.carros.domain
 import android.content.Context
 import android.util.Log
 import br.com.jordilucas.carros.R
+import br.com.jordilucas.carros.domain.dao.DatabaseManager
 import br.com.jordilucas.carros.domain.retrofit.CarrosRest
 import br.com.jordilucas.carros.extensions.fromJson
 import br.com.jordilucas.carros.utils.TipoCarro
@@ -45,6 +46,10 @@ object CarroService {
     fun delete(carro: Carro): Response?{
         val call = service.delete(carro.id)
         val response = call.execute().body()
+        if(response!!.isOK()){
+            val dao = DatabaseManager.getCarroDAO()
+            dao.delete(carro)
+        }
         return response
     }
 
