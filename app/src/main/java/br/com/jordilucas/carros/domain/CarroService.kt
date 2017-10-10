@@ -1,10 +1,12 @@
 package br.com.jordilucas.carros.domain
 
+import android.util.Base64
 import br.com.jordilucas.carros.R
 import br.com.jordilucas.carros.domain.dao.DatabaseManager
 import br.com.jordilucas.carros.domain.retrofit.CarrosRest
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
 
 /**
  * Created by jordi on 31/08/17.
@@ -47,23 +49,16 @@ object CarroService {
         return response
     }
 
-   /* fun getCarros(tipo:TipoCarro):List<Carro>{
+    fun postFoto(file: File): Response? {
 
-        val url = "http://livrowebservices.com.br/rest/carros/tipo/${tipo.name}"
-        Log.d(TAG, url)
-        val json = URL(url).readText()
-        val carros = fromJson<List<Carro>>(json)
-        return carros
+        // Converte para Base64
+        val bytes = file.readBytes()
+        val base64 = Base64.encodeToString(bytes, Base64.NO_WRAP)
 
-        *//*val raw = getArquivoRaw(tipo)
-        val resources = context.resources
-        val inputStream = resources.openRawResource(raw)
-        inputStream.bufferedReader().use{
-            val json = it.readText()
-            val carros = fromJson<List<Carro>>(json)
-            return carros
-        }*//*
-    }*/
+        val call = service.postFoto(file.name,base64)
+        val response = call.execute().body()
+        return response
+    }
 
 
 
