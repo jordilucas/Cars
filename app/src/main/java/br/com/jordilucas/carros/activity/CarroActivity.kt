@@ -1,8 +1,11 @@
 package br.com.jordilucas.carros.activity
 
+import android.content.Intent
 import android.content.res.ColorStateList
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import br.com.jordilucas.carros.R
@@ -37,8 +40,16 @@ class CarroActivity : BaseActivity() {
     }
 
     fun initViews(){
+        Log.i("test", carro.toString())
         tDesc.text = carro.desc
         appBarImg.loadUrl(carro.urlFoto)
+        img.loadUrl(carro.urlFoto)
+        val url = carro.urlVideo
+        imgPlayVideo.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setDataAndType(Uri.parse(url), "video/*")
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
