@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "carro")
 class Carro : Parcelable {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     var id:Long = 0
     var tipo = ""
     var nome = ""

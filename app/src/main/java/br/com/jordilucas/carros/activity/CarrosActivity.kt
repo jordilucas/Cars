@@ -5,7 +5,7 @@ import br.com.jordilucas.carros.R
 import br.com.jordilucas.carros.extensions.addFragment
 import br.com.jordilucas.carros.extensions.setupToolbar
 import br.com.jordilucas.carros.fragments.CarrosFragment
-import br.com.jordilucas.carros.utils.TipoCarro
+import br.com.jordilucas.carros.domain.TipoCarro
 
 class CarrosActivity : BaseActivity() {
 

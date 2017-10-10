@@ -13,20 +13,21 @@ import br.com.jordilucas.carros.activity.CarroActivity
 import br.com.jordilucas.carros.adapter.CarroAdapter
 import br.com.jordilucas.carros.domain.Carro
 import br.com.jordilucas.carros.domain.CarroService
-import br.com.jordilucas.carros.utils.TipoCarro
+import br.com.jordilucas.carros.domain.TipoCarro
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
-class CarrosFragment : BaseFragment() {
+open class CarrosFragment : BaseFragment() {
 
     private var tipoCarro: TipoCarro = TipoCarro.classicos
-    private var carros = listOf<Carro>()
+    protected var carros = listOf<Carro>()
     var recyclerView: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        tipoCarro = arguments.getSerializable("tipo") as TipoCarro
-
+        if(arguments != null){
+            tipoCarro = arguments.getSerializable("tipo") as TipoCarro
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -49,7 +50,7 @@ class CarrosFragment : BaseFragment() {
         taskCarros()
     }
 
-    fun taskCarros(){
+    open fun taskCarros(){
 
         doAsync {
             carros = CarroService.getCarros(tipoCarro)!!
@@ -61,7 +62,7 @@ class CarrosFragment : BaseFragment() {
         }
     }
 
-    fun onClickCarro(carro: Carro){
+    open fun onClickCarro(carro: Carro){
         activity.startActivity<CarroActivity>("carro" to carro)
     }
 

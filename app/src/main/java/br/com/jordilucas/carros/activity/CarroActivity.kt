@@ -1,11 +1,14 @@
 package br.com.jordilucas.carros.activity
 
+import android.content.res.ColorStateList
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.view.Menu
 import android.view.MenuItem
 import br.com.jordilucas.carros.R
 import br.com.jordilucas.carros.domain.Carro
 import br.com.jordilucas.carros.domain.CarroService
+import br.com.jordilucas.carros.domain.FavoritosService
 import br.com.jordilucas.carros.extensions.loadUrl
 import br.com.jordilucas.carros.extensions.setupToolbar
 import br.com.jordilucas.carros.extensions.toast
@@ -25,6 +28,12 @@ class CarroActivity : BaseActivity() {
         setContentView(R.layout.activity_carro)
         setupToolbar(R.id.toolbar, carro.nome, true)
         initViews()
+        fab.setOnClickListener { onClickFavoritar(carro) }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        taskUpdateFavoriteColor()
     }
 
     fun initViews(){
@@ -66,6 +75,36 @@ class CarroActivity : BaseActivity() {
                 finish()
             }
         }
+    }
+
+    fun taskUpdateFavoriteColor(){
+        doAsync {
+            val b = FavoritosService.isFavorito(carro)
+            uiThread {
+                setFavoriteColor(b)
+            }
+        }
+    }
+
+    fun onClickFavoritar(carro: Carro){
+        doAsync {
+            val favoritado = FavoritosService.favoritar(carro)
+            uiThread {
+                toast(if(favoritado) R.string.msg_carro_favoritado
+                        else R.string.msg_carro_desfavoritado)
+
+                setFavoriteColor(favoritado)
+
+            }
+        }
+    }
+
+    fun setFavoriteColor(favorito: Boolean){
+        val fundo = ContextCompat.getColor(this, if(favorito) R.color.favorito_on else
+                R.color.favorito_off)
+        val cor = ContextCompat.getColor(this, if(favorito) R.color.yellow else R.color.favorito_on)
+        fab.backgroundTintList = ColorStateList(arrayOf(intArrayOf(0)), intArrayOf(fundo))
+        fab.setColorFilter(cor)
     }
 
 }

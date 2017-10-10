@@ -1,16 +1,10 @@
 package br.com.jordilucas.carros.domain
 
-import android.content.Context
-import android.util.Log
 import br.com.jordilucas.carros.R
 import br.com.jordilucas.carros.domain.dao.DatabaseManager
 import br.com.jordilucas.carros.domain.retrofit.CarrosRest
-import br.com.jordilucas.carros.extensions.fromJson
-import br.com.jordilucas.carros.utils.TipoCarro
-import org.json.JSONArray
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.net.URL
 
 /**
  * Created by jordi on 31/08/17.

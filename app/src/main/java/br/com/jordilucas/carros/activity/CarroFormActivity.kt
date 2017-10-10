@@ -1,6 +1,5 @@
 package br.com.jordilucas.carros.activity
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -8,7 +7,7 @@ import br.com.jordilucas.carros.R
 import br.com.jordilucas.carros.domain.Carro
 import br.com.jordilucas.carros.domain.CarroService
 import br.com.jordilucas.carros.extensions.*
-import br.com.jordilucas.carros.utils.TipoCarro
+import br.com.jordilucas.carros.domain.TipoCarro
 import kotlinx.android.synthetic.main.activity_carro_form.*
 import kotlinx.android.synthetic.main.activity_carro_form_content.*
 import org.jetbrains.anko.doAsync

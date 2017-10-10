@@ -11,7 +11,7 @@ import br.com.jordilucas.carros.domain.Carro
  */
 @Dao
 interface CarroDAO{
-    @Query("SELECT * FROM caro where id = :arg0")
+    @Query("SELECT * FROM carro where id = :arg0")
     fun getById(id: Long): Carro?
     @Query("SELECT * FROM carro")
     fun findAll(): List<Carro>

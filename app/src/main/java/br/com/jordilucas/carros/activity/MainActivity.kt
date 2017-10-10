@@ -1,23 +1,18 @@
 package br.com.jordilucas.carros.activity
 
-import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
-import android.support.design.widget.TabLayout
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v4.view.ViewPager
 import android.support.v7.app.ActionBarDrawerToggle
-import android.view.Menu
 import android.view.MenuItem
 import br.com.jordilucas.carros.R
 import br.com.jordilucas.carros.adapter.TabsAdapter
 import br.com.jordilucas.carros.extensions.setupToolbar
 import br.com.jordilucas.carros.extensions.toast
 import br.com.jordilucas.carros.utils.Prefs
-import br.com.jordilucas.carros.utils.TipoCarro
+import br.com.jordilucas.carros.domain.TipoCarro
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 import org.jetbrains.anko.startActivity
@@ -49,12 +44,12 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     private fun setupViewPagerTabs(){
-        viewPager.offscreenPageLimit = 2
+        viewPager.offscreenPageLimit = 3
         viewPager.adapter = TabsAdapter(context, supportFragmentManager)
         tabLayout.setupWithViewPager(viewPager)
         val cor = ContextCompat.getColor(context, R.color.white)
         tabLayout.setTabTextColors(cor, cor)
-
+        tabLayout.isHorizontalScrollBarEnabled = true
         val tabIdx = Prefs.getInt("tabIdx")
         viewPager.currentItem = tabIdx
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
