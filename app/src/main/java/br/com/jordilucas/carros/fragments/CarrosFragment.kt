@@ -14,6 +14,7 @@ import br.com.jordilucas.carros.adapter.CarroAdapter
 import br.com.jordilucas.carros.domain.Carro
 import br.com.jordilucas.carros.domain.CarroService
 import br.com.jordilucas.carros.domain.TipoCarro
+import kotlinx.android.synthetic.main.fragment_carros.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -55,6 +56,7 @@ open class CarrosFragment : BaseFragment() {
         doAsync {
             carros = CarroService.getCarros(tipoCarro)!!
             uiThread {
+                progressBar.visibility = View.GONE
                 recyclerView?.adapter = CarroAdapter(carros){
                     onClickCarro(it)
                 }
