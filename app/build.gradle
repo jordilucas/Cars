@@ -3,7 +3,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
-
 android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
@@ -54,5 +53,7 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     kapt "android.arch.persistence.room:compiler:$room_version"
 
+    implementation 'com.google.android.gms:play-services-maps:11.4.2'
+    implementation 'com.google.android.gms:play-services-location:11.4.2'
 
 }
