@@ -15,6 +15,7 @@ import br.com.jordilucas.carros.domain.FavoritosService
 import br.com.jordilucas.carros.extensions.loadUrl
 import br.com.jordilucas.carros.extensions.setupToolbar
 import br.com.jordilucas.carros.extensions.toast
+import br.com.jordilucas.carros.fragments.MapaFragment
 import kotlinx.android.synthetic.main.activity_carro.*
 import kotlinx.android.synthetic.main.activity_carro_contents.*
 import org.jetbrains.anko.alert
@@ -50,6 +51,9 @@ class CarroActivity : BaseActivity() {
             intent.setDataAndType(Uri.parse(url), "video/*")
             startActivity(intent)
         }
+        val mapaFragment = MapaFragment()
+        mapaFragment.arguments = intent.extras
+        supportFragmentManager.beginTransaction().replace(R.id.mapaFragment, mapaFragment).commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
