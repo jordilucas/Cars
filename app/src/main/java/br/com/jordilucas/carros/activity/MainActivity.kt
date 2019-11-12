@@ -1,11 +1,11 @@
 package br.com.jordilucas.carros.activity
 
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.v4.content.ContextCompat
-import android.support.v4.view.GravityCompat
-import android.support.v4.view.ViewPager
-import android.support.v7.app.ActionBarDrawerToggle
+import com.google.android.material.navigation.NavigationView
+import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import androidx.viewpager.widget.ViewPager
+import androidx.appcompat.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import br.com.jordilucas.carros.R
 import br.com.jordilucas.carros.adapter.TabsAdapter

@@ -1,6 +1,6 @@
 package br.com.jordilucas.carros.domain.dao
 
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import br.com.jordilucas.carros.CarrosAplication
 
 /**

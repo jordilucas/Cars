@@ -2,9 +2,9 @@ package br.com.jordilucas.carros.adapter
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import br.com.jordilucas.carros.fragments.CarrosFragment
 import br.com.jordilucas.carros.domain.TipoCarro
 import br.com.jordilucas.carros.fragments.FavoritosFragment

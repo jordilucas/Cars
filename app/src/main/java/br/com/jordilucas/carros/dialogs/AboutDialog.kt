@@ -4,12 +4,13 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
+import androidx.fragment.app.DialogFragment
 import android.text.Html
 import android.text.SpannableStringBuilder
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 
 import br.com.jordilucas.carros.R
 
@@ -56,7 +57,7 @@ class AboutDialog : DialogFragment() {
     }
 
     companion object {
-        fun showAbout(fm: android.support.v4.app.FragmentManager){
+        fun showAbout(fm: FragmentManager){
             val ft = fm.beginTransaction()
             val prev = fm.findFragmentByTag("about_dialog")
             if(prev != null){

@@ -2,7 +2,7 @@ package br.com.jordilucas.carros.activity
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 
 /**
  * Created by jordi on 29/08/17.
